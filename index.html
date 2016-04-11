@@ -465,8 +465,7 @@
      	</div>
      </div>
    </div>
-
-  <div data-role="page" id="page1_1"> 
+  <div data-role="page" id="page1_1">
   				<div data-role="header" data-position="fixed" data-tap-toggle="false"> 
                 <div style="background-color: rgb(255, 255, 255); padding-top: 5%;"></div>      	
              	    	<div>
@@ -482,8 +481,7 @@
                         </div>
                          <div style="width:100%; line-height:0.3"><table width="100%"><tr><td width="50%"><img id="active_ld" src="css/active_active.png" width="100%"></td><td width=50%><img id="history_ld" src="css/history_inactive.png" width="100%"></td></tr></table></div>
                  </div>
-                        
-                    	<div role="listpage" class="ui-content" id="lol">
+                    <div role="listpage" class="ui-content" id="lol">
                         <table width="100%" id="lol_item"></table>
                         <table id="lol_item_inactive"></table>
                         <div id="loading_loads"><!--<img src="css/loading.gif" style="width:20%;margin-left:40%;" />--></div>
@@ -566,7 +564,6 @@
 <!---- LAST DESIGN BOL PAGE 2_5 ----->   
  	<div data-role="page" id="page2_5">
              	    <div data-role="header" data-position="fixed" data-tap-toggle="false">
-                    <div style="background-color: rgb(255, 255, 255); padding-top: 5%;"></div>
                     <div>
                         <table width="100%">
                               <tr>
@@ -579,7 +576,7 @@
                         <div id="header_load">&nbsp;_</div><div id="header_load_number">&nbsp;_</div>
                      </div>
                      <div style="width:100%; line-height:0.3">
-                         <table width="100%"><tr><td width="12%"><a id="back_change" href="#page2" class=""><img width="100%" src="css/back_pic.png"></a></td><td width="40%"><img id="original_id" src="css/original_link.png" width="100%"></td><td width=40%><img id="chat_bol" src="css/message_link.png" width="100%"></td></tr></table>
+                         <table width="100%"><tr><td width="12%"><a id="back_change" href="#page2" id="" class=""><img width="100%" src="css/back_pic.png"></a></td><td width="40%"><img id="original_id" src="css/original_link.png" width="100%"></td><td width=40%><img id="chat_bol" src="css/message_link.png" width="100%"></td></tr></table>
                      </div>
                  </div>
                 
@@ -587,7 +584,6 @@
                     <img id="image_source" alt="" src="css/loading2.gif" style="width:100%;padding-top:2px;"/>
                 </div>-->
                 <div id="pick_drop">
-                <div id="map"></div>
                   <!--<p>PickUp Location: <a style="color:red" href="maps://?q=cupertino"; onclick="window.open(this.href,'_system'); return false;">EverGreen Street 1600</a></p>-->
                   <div id="pick_div">
                      <div id="shipper_title">SHIPPER</div>
@@ -597,17 +593,16 @@
                       </div>
                       <div id="pick_div_im">
                            <div id="shipper_table">
-                                <div id="shipper_take_picture" onClick="shipper_take_pic()"><img width="100%" src="css/take_picture.png" /></div>
-                                <div id="shipper_add_signature" onClick="shipper_add_sig()"><a href="#choose_signature_shipper" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div>
-                                <div id="shipper_wrapper">
-                                	<div id="expand_shipper"><b>&nbsp; - </b>Shipper BOL</div>
-                                	<div id="shipper_photos"></div>
-                                 </div>
+                                <div id="shipper_take_picture" onClick="shipper_take_pic()"><img width="100%" src="css/for_pickup.png" /></div>
+                                <!-- <div id="shipper_add_signature" onClick="shipper_add_sig()"><a href="#choose_signature_shipper" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div> -->
+                               <!-- <div id="shipper_wrapper">
+                                	 <div id="expand_shipper"><b>&nbsp; - </b>Shipper BOL</div>
+                                	<div id="shipper_photos"></div> 
+                                 </div>-->
                            </div>
                           <!--<a style="color:red" onClick="location.href=localStorage.pick_address" target="_system"><img id="pick_map_icon" src="css/maps-icon1.png"/></a> -->
                       </div>
                    </div>
-                   <div>ETA:<span id="eta_shipper">_</span></div>
                    <div id="drop_div">
                    <div id="consignee_title">CONSIGNEE</div>
                       <div id="drop_div_text">
@@ -616,26 +611,27 @@
                        </div>
                        <div id="drop_div_text">
                        <div id="consignee_table">
-                             <div id="consignee_take_picture" onClick="consignee_take_pic()"><img width="100%" src="css/take_picture.png" /></div>
-                             <div id="consignee_add_signature" onClick="consignee_add_sig()"><a href="#choose_signature_consignee" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div>
-                             <div id="consignee_wrapper">
+                             <div id="consignee_take_picture" onClick="consignee_take_pic()"><img width="100%" src="css/for_delivery.png" /></div>
+                             <!--<div id="consignee_add_signature" onClick="consignee_add_sig()"><a href="#choose_signature_consignee" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div>-->
+                             <!--<div id="consignee_wrapper">
                                  <div id="expand_consignee"><b>&nbsp; - </b>Consignee BOL</div>
                                  <div id="consignee_photos"></div>
-                             </div>
+                             </div>-->
                        </div>
                           <!--<a style="color:red" onClick="location.href=localStorage.drop_address" target="_system"><img id="drop_map_icon" src="css/maps-icon2.png"/></a> -->
                       </div>
                     </div>
-                    <div>ETA:<span id="eta_consignee">_</span></div>
                 </div>
                 
                 <div id="aditional_documents">
-                 <div id="documents_title">ADITIONAL DOCUMENTS</div>
+                 <div id="documents_title">DOCUMENTS</div>
                      <div id="document_options">
                      	<div id="div_document_name">
                             <!--<select data-native-menu="false" data-theme="a" data-overlay-theme="a" tabindex="-1">-->
                             <select data-role="" id="select_new_document" data-native-menu="false" data-theme="a" data-overlay-theme="b">
                             	<option data-placeholder="false" value="0">Select a Document</option>
+                                <option value="Bol">BOL</option>
+                                 <option value="Pod">POD</option>
                                 <option value="Invoice">Invoice</option>
                                 <option value="Manifest">Manifest</option>
                                 <option value="Lumper Fee">Lumper fee</option>
@@ -663,80 +659,67 @@
                 <!-- POP UP for adding signature SHIPPER-->
                 <div data-role="popup" data-overlay-theme="b" id="choose_signature_shipper" class="ui-content" data-theme="a">
                     <div id="shp_sig_title">Select to sign :</div>
-                    <div id="original_shipper"><a style="color:blue; font-weight:600; line-height:2" href="#page3">-Original Document</a></div>
+                    <div><a style="color:blue; font-weight:600; line-height:2" href="#page3">-Original Document</a></div>
                     <div id="shp_sig_options"></div>
                 </div>
                   <!-- POP UP for adding signature CONSIGNEE -->
                 <div data-role="popup" data-overlay-theme="b" id="choose_signature_consignee" class="ui-content" data-theme="a">
                       <div id="cs_sig_title">Select to sign :</div>
-                      <div id="original_consignee"><a style="color:blue; font-weight:600; line-height:2" href="#page5">-Original Document</a></div>
+                      <div><a style="color:blue; font-weight:600; line-height:2" href="#page5">-Original Document</a></div>
                     <div id="cs_sig_options"></div>
                 </div>
        </div>
 <script>
-function shipper_add_sig(){
-	};
-	
-function consignee_add_sig(){
-	};
-//---- SHIPPER SAVING DATA , SIGNATURE MARK, DATE AND PAGES NUMBER ------ //
 
-function shipper_take_pic(){
-//--- JUST TAKING PICTURE ----//
-	navigator.camera.getPicture(onSuccess1, onFail1, { 
-								quality: 40,
-								targetWidth: 1650,
-								targetHeight: 2200,
-								destinationType: Camera.DestinationType.FILE_URI
-							});
-				function onSuccess1(imageURI) {
+
+//----- Shipper mark ( Load has been picked up) -----//
+function shipper_take_pic(){ 
 					$.mobile.loading("show", {text: 'loading',textVisible: true,theme: 'b',html: '<img src="css/loading.gif" style="width:40%;margin-left: 30%;" />'});
-					$('#cam_picture').html(imageURI);
-					//--- SAVE PICTURE TAKEN -----//
-						var imageURI = $('#cam_picture').html();
-						var options = new FileUploadOptions();
-						options.fileKey = "file";
-						options.fileName = ''+localStorage.load_id_bol+'_bol_'+localStorage.bol_number+'_sp-'+localStorage.shipper_counter+'.jpg';
-						//($("#image_source").attr('alt')).substr(($('#image_source').attr('alt')).lastIndexOf("/")+1);
-						options.mimeType = "image/jpeg";
-						options.params = {
-												firstname: 'first',
-												lastname: 'second',
-												workplace: 'workplace'
-											}
-						var ft = new FileTransfer();
-						ft.upload(imageURI, encodeURI(localStorage.save_url+"/save_picture.php"), win1, fail1, options);
-                    //--- END OF - SAVE PICTURE TAKEN -----//
-										// ---- WIN - FAIL ----- SHIPPER save_picture.php --- //
-										function win1(r) {
-													  //$.mobile.loading("hide");
-													  $('#cam_picture').html('');
-													  var d = new Date();
-													  $('#shipper_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.shipper_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.shipper_counter+'</a></div>');
-													  $('#expand_shipper').html('<b>&nbsp; - </b>Shipper BOL');
-													  $('#shipper_photos').show();
-													  //---- POP UP SHIPPER -----//
-													  $('#shp_sig_options').append('<div><a style="color:blue; font-weight:500" href="#" onClick="sign_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.shipper_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.shipper_counter+'</a></div>');
-													  localStorage.save_shipper_bol = '/save_shipper_page.php';
-													  localStorage.shipper_counter = parseFloat(localStorage.shipper_counter) + 1;
-													  //----------CHECK if there is already a signature to not send the callcheck ------
 																 $.ajax({
 																	  type: 'POST',
-																	  async: false,
+																	  async: true,
 																	  dataType:'json',
 																	  url: ''+localStorage.base_url+'/load/app_get_shipments_by_id/'+localStorage.shipment_id,
 																	  success: function(data){
 																		  if(data[0].origin_sign == 1){
 																			  //alert('test 1');
 																			  }else{
-																				 // alert('test 2');
+																				  //alert('test 2');
 																				  // ------------Message to signature saving 
 																				$.ajax({
 																					type: 'POST',
 																					data: {load_id:localStorage.load_id_bol, sig_id: 1, bol_number:localStorage.bol_number, user_id: localStorage.user_id, lat_sig: $('#latitude').val(), lng_sig:$('#longitude').val()},
-																					url: ''+localStorage.save_url+'/message_pic.php',
+																					url: ''+localStorage.save_url+'/message_pic_new.php',
 																					success: function(data){
 																						//alert('callcheck for pic 1');
+																						 $.ajax({
+																								  type: 'POST',
+																								  async: true,
+																								  data:{bol_number:localStorage.bol_number},
+																								  url: ''+localStorage.save_url+'/shipper_page_number_new.php',
+																								  success: function(data){
+																									  navigator.notification.alert(
+																																  'The truck is loaded.',
+																																  alertCallback,
+																																  'Smith TracknGo',
+																																  'Ok');
+																							    	 	$('#shipper_take_picture').html('<img width="100%" src="css/picked_up.png" />');
+																							     		$('#shipper_take_picture').attr('onClick','');
+																							     		$('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
+																										$.mobile.loading("hide");
+																									  console.log(data);
+																									  },
+																								  error: function(data){
+																									  navigator.notification.alert(
+																																  'There was a problem, Try again',
+																																  alertCallback,
+																																  'Smith TracknGo',
+																																  'Ok');
+																										$.mobile.loading("hide");
+																									  console.log(data);
+																									  }
+																								  });
+														  //---------
 																						},
 																					error: function(data){
 																						//alert('error callcheck for pic 1');
@@ -751,262 +734,119 @@ function shipper_take_pic(){
 																		  }
 																 });
 														//----------------------------------------------------------------------------
-													   $.ajax({
-														  type: 'POST',
-														  async: false,
-														  data:{pages_shipper:localStorage.shipper_counter,load_id:localStorage.load_id_bol,bol_number:localStorage.bol_number,doc_name:'Shipper Document'},
-														  url: ''+localStorage.save_url+'/shipper_page_number.php',
-														  success: function(data){
-															  navigator.notification.alert(
-																						  'Shipper picture has been sent to the manager',
-																						  alertCallback,
-																						  'Smith TracknGo',
-																						  'Ok');
-																$.mobile.loading("hide");
-																$('#eta_shipper').html("Completed");
-																localStorage.origin_sign = 1;
-															  console.log(data);
-															  },
-														  error: function(data){
-															  navigator.notification.alert(
-																						  'There was a problem, Try again',
-																						  alertCallback,
-																						  'Smith TracknGo',
-																						  'Ok');
-																$.mobile.loading("hide");
-															  console.log(data);
-															  }
-														  });
-												}
-											
-										function fail1(error) {
-													alert("A1n error has occurred: Code = " + error.code);
-													console.log("upload error source " + error.source);
-													console.log("upload error target " + error.target);
-												}
-										// ---- END OF WIN - FAIL ----- SHIPPER save_picture.php --- //
-				       }
-				function onFail1(message) {
-								// WHEN THE USER PRESS CANCEL --- not taking a photo.
-					     $("#image_source").attr('src',localStorage.image_name);
-					    }
-
+													  
 //--- END OF JUST TAKING PICTURE ----//
 
 	};
-//---- VIEW PICTURE SHIPPER ------//
 
-function view_picture_shipper(load_id,bol_number,counter){
-	     window.open(''+localStorage.files+'/'+load_id+'_bol_'+bol_number+'_sp-'+counter+'.jpg', '_system');
-	};
-//---- END OF VIEW PICTURE SHIPPER  ---- //
-//---- SIGN SHIPPER PICTURES -----//
-function sign_picture_shipper(load_id,bol_number,counter){
-	  localStorage.load_id_pic = load_id;
-	  localStorage.bol_number_pic = bol_number;
-	  localStorage.pic_number = counter;
-	  localStorage.shp_cs = 1;
-	  localStorage.shp_cs_id = 'sp';
-	  location.href = '#page7';
-	};
-//---- END OF SIGN SHIPPER PICTURES -----//
-//---- VIEW PICTURE CONSIGNEE ------//
-
-function view_picture_consignee(load_id,bol_number,counter){
-	     window.open(''+localStorage.files+'/'+load_id+'_bol_'+bol_number+'_cs-'+counter+'.jpg', '_system');
-	};
-//---- END OF VIEW PICTURE CONSIGNEE ---- //
-//---- SIGN CONSIGNEE PICTURES -----//
-function sign_picture_consignee(load_id,bol_number,counter){
-	  localStorage.load_id_pic = load_id;
-	  localStorage.bol_number_pic = bol_number;
-	  localStorage.pic_number = counter;
-	  localStorage.shp_cs = 0;
-	  localStorage.shp_cs_id = 'cs';
-	  location.href = '#page7';
-	};
-//---- END OF SIGN CONSIGNEE PICTURES -----//
-
-
-// ---- EXPAND SHIPPER ---- //
-
-$('#expand_shipper').click(function(){
-	   if($('#expand_shipper').html() == "<b>&nbsp; - </b>Shipper BOL"){
-	         $('#expand_shipper').html('<b>&nbsp; + </b>Shipper BOL');
-		     $('#shipper_photos').hide();
-	   }else{
-		   $('#expand_shipper').html('<b>&nbsp; - </b>Shipper BOL');
-		   $('#shipper_photos').show();
-		   }
-	});
-// ---- END OF EXPAND SHIPPER ---- //
-
-
+//----- Consignee mark ( Load has been delivered) -----//
 function consignee_take_pic(){
-//--- JUST TAKING PICTURE ----//
-	navigator.camera.getPicture(onSuccess2, onFail2, { 
-								quality: 40,
-								targetWidth: 1650,
-								targetHeight: 2200,
-								destinationType: Camera.DestinationType.FILE_URI
-							});
-				function onSuccess2(imageURI) {
 					$.mobile.loading("show", {text: 'loading',textVisible: true,theme: 'b',html: '<img src="css/loading.gif" style="width:40%;margin-left: 30%;"  />'});
-					$('#cam_picture').html(imageURI);
-					//--- SAVE PICTURE TAKEN -----//
-							var imageURI = $('#cam_picture').html();
-							var options = new FileUploadOptions();
-							options.fileKey = "file";
-							options.fileName = ''+localStorage.load_id_bol+'_bol_'+localStorage.bol_number+'_cs-'+localStorage.consignee_counter+'.jpg';
-							//($("#image_source").attr('alt')).substr(($('#image_source').attr('alt')).lastIndexOf("/")+1);
-							options.mimeType = "image/jpeg";
-							options.params = {
-												firstname: 'first',
-												lastname: 'second',
-												workplace: 'workplace'
-											}
-							var ft = new FileTransfer();
-							ft.upload(imageURI, encodeURI(localStorage.save_url+"/save_picture.php"), win2, fail2, options);
-                   //--- END OF - SAVE PICTURE TAKEN -----//
-				   					// ---- WIN - FAIL ----- COnsignee save_picture.php --- //
-											function win2(r) {
-												$('#cam_picture').html('');
-											  var d = new Date()
-											  $('#consignee_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.consignee_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.consignee_counter+'</a></div>');
-											  $('#expand_consignee').html('<b>&nbsp; - </b>Consignee BOL');
-											  $('#consignee_photos').show();
-											  //---- POP UP SHIPPER -----//
-											  $('#cs_sig_options').append('<div><a style="color:blue; font-weight:500" href="#" onClick="sign_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.consignee_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.consignee_counter+'</a></div>');
-											  localStorage.save_consignee_bol = '/save_consignee_page.php';
-											  localStorage.consignee_counter = parseFloat(localStorage.consignee_counter) + 1;
-											   //----------CHECK if there is already a signature to not send the callcheck ------
-																 $.ajax({
-																	  type: 'POST',
-																	  async: false,
-																	  dataType:'json',
-																	  url: ''+localStorage.base_url+'/load/app_get_shipments_by_id/'+localStorage.shipment_id,
-																	  success: function(data){
-																		  if(data[0].destination_sign == 1){
-																			   //alert('test 3');
-																			  }else{
-																				  //alert('test 4');
-																				  // ------------Message to signature saving 
-																				$.ajax({
-																					type: 'POST',
-																					data: {load_id:localStorage.load_id_bol, sig_id: 2, bol_number:localStorage.bol_number, user_id: localStorage.user_id, lat_sig: $('#latitude').val(), lng_sig:$('#longitude').val()},
-																					url: ''+localStorage.save_url+'/message_pic.php',
-																					success: function(data){
-																						//alert('callcheck for pic 2');
-																						},
-																					error: function(data){
-																						//alert('error callcheck for pic 2');
-																						},
-																					})
-																			// -----------End of message to signature saving
-																				  }
-																		  //$.mobile.loading("hide");  
-																		  },
-																	  error: function(data){
-																		  //$.mobile.loading("hide");
-																		  }
-																 });
-														//----------------------------------------------------------------------------
-												$.ajax({
-												  type: 'POST',
-												  async: false,
-												  data:{pages_consignee:localStorage.consignee_counter,load_id:localStorage.load_id_bol,bol_number:localStorage.bol_number,doc_name:'Consignee Document'},
-												  url: ''+localStorage.save_url+'/consignee_page_number.php',
-												  success: function(data){
-													   navigator.notification.alert(
-																				  'Consignee picture has been \n sent to the manager',
-																				  alertCallback,
-																				  'Smith TracknGo',
-																				  'Ok');
-													//$('#shipper_take_picture').hide();
-													$('#consignee_take_picture').show();
-													$.mobile.loading("hide");
-													$('#eta_consignee').html("Completed");
-													localStorage.destination_sign = 1;
-													//alerttemp
-													alert('eta consignee completed');
-													//-------------------------
-																   //----- ASK FOR DESTINATION EMPTY SIGNATURES-----//
-																   var unsigned_shipments2 = 0;
-																			 $.ajax({
-																				 type: 'POST',
-																				 async:false,
-																				 dataType: 'json',
-																				 url:''+localStorage.base_url+'/load/app_get_shipments_by_load/'+localStorage.load_id_bol,
-																				 success: function(data){
-																						console.log(data);
-																						for(i=0;i<data.length;i++){
-																							if(data[i].destination_sign != 1){
-																								 unsigned_shipments2++;
+				  //---- POP UP SHIPPER -----/
+				  localStorage.consignee_counter = parseFloat(localStorage.consignee_counter) + 1;
+				   //----------CHECK if there is already a signature to not send the callcheck ------
+									 $.ajax({
+										  type: 'POST',
+										  async: true,
+										  dataType:'json',
+										  url: ''+localStorage.base_url+'/load/app_get_shipments_by_id/'+localStorage.shipment_id,
+										  success: function(data){
+											  if(data[0].destination_sign == 1){
+												   //alert('test 3');
+												  }else{
+													  //alert('test 4');
+													  // ------------Message to signature saving 
+													$.ajax({
+														type: 'POST',
+														data: {load_id:localStorage.load_id_bol, sig_id: 2, bol_number:localStorage.bol_number, user_id: localStorage.user_id, lat_sig: $('#latitude').val(), lng_sig:$('#longitude').val()},
+														url: ''+localStorage.save_url+'/message_pic_new.php',
+														success: function(data){
+															//alert('callcheck for pic 2');
+																$.ajax({
+																  type: 'POST',
+																  async: true,
+																  data:{bol_number:localStorage.bol_number},
+																  url: ''+localStorage.save_url+'/consignee_page_number_new.php',
+																  success: function(data){
+																	   navigator.notification.alert(
+																								  'The load has been delivered.',
+																								  alertCallback,
+																								  'Smith TracknGo',
+																								  'Ok');
+																  $('#consignee_take_picture').html('<img width="100%" src="css/delivered.png" />');
+																  $('#consignee_take_picture').attr('onClick','');
+																	$.mobile.loading("hide");
+																	//-------------------------
+																				   //----- ASK FOR DESTINATION EMPTY SIGNATURES-----//
+																				   var unsigned_shipments2 = 0;
+																							 $.ajax({
+																								 type: 'POST',
+																								 async:true,
+																								 dataType: 'json',
+																								 url:''+localStorage.base_url+'/load/app_get_shipments_by_load/'+localStorage.load_id_bol,
+																								 success: function(data){
+																										console.log(data);
+																										for(i=0;i<data.length;i++){
+																											if(data[i].destination_sign != 1){
+																												 unsigned_shipments2++;
+																												}else{
+																													}
+																											}
+																									},
+																								error: function(data){
+																									console.log(data);
+																									navigator.notification.alert(
+																																  'There was an error with active loads 12',
+																																  alertCallback,
+																																  'Smith TracknGo',
+																																  'Ok');
+																								}})						
+																							// Reset location traces sending //
+																							if(unsigned_shipments2 >= 1){
+																								//alert('unsigned_shipments >=1');
 																								}else{
-																									}
-																							}
-																					},
-																				error: function(data){
-																					console.log(data);
-																					navigator.notification.alert(
-																												  'There was an error with active loads 12',
-																												  alertCallback,
-																												  'Smith TracknGo',
-																												  'Ok');
-																				}})						
-																			// Reset location traces sending //
-																			if(unsigned_shipments2 >= 1){
-																				//alert('unsigned_shipments >=1');
-																				}else{
-																						localStorage.start = 0;
-																						localStorage.finish = 1;
-																						// To enable the restart --- driver setinterval --- driver_location_interval
-																						localStorage.location_mark = 0;
-																						//-/-----/-//
-																						localStorage.trace = 0;//$('#localstorage_trace').html(0);
-																						clearInterval(location_trace_interval);
-																						cordova.plugins.backgroundMode.disable();
-																						//--ACHTUNG--//
-																						//bgGeo.stop();
-																					};
-																
-													  //-------------------------------
-													
-													  console.log(data);
-													  },
-												  error: function(data){
-													  navigator.notification.alert(
-																				  'There was a problem, Try again',
-																				  alertCallback,
-																				  'Smith TracknGo',
-																				  'Ok');
-													  console.log(data);
+																										localStorage.start = 0;
+																										localStorage.finish = 1;
+																										// To enable the restart --- driver setinterval --- driver_location_interval
+																										localStorage.location_mark = 0;
+																										//-/-----/-//
+																										localStorage.trace = 0;//$('#localstorage_trace').html(0);
+																										clearInterval(location_trace_interval);
+																										cordova.plugins.backgroundMode.disable();
+																										//--ACHTUNG--//
+																										//bgGeo.stop();
+																									};
+																				
+																	  //-------------------------------
+																	
+																	  console.log(data);
+																	  },
+																  error: function(data){
+																	  navigator.notification.alert(
+																								  'There was a problem, Try again',
+																								  alertCallback,
+																								  'Smith TracknGo',
+																								  'Ok');
+																	  console.log(data);
+																	  }
+																  });
+					  //-------------------
+															},
+														error: function(data){
+															//alert('error callcheck for pic 2');
+															},
+														})
+												// -----------End of message to signature saving
 													  }
-												  });
-													}
-												
-											function fail2(error) {
-														alert("An error has occurred: Code = " + error.code);
-														console.log("upload error source " + error.source);
-														console.log("upload error target " + error.target);
-													}
+											  //$.mobile.loading("hide");  
+											  },
+										  error: function(data){
+											  //$.mobile.loading("hide");
+											  }
+									 });
+					//----------------------------------------------------------------------------
 											// ----END OF WIN - FAIL ----- COnsignee save_picture.php --- //	
-				       }
-				function onFail2(message) {
-								// WHEN THE USER PRESS CANCEL --- not taking a photo.
-					  }
-//--- END OF JUST TAKING PICTURE ----//
 	};
-$('#expand_consignee').click(function(){
-	   if($('#expand_consignee').html() == "<b>&nbsp; - </b>Consignee BOL"){
-	         $('#expand_consignee').html('<b>&nbsp; + </b>Consignee BOL');
-		     $('#consignee_photos').hide();
-	   }else{
-		     $('#expand_consignee').html('<b>&nbsp; - </b>Consignee BOL');
-		     $('#consignee_photos').show();
-		   }
-	});
-
 // ----------------- DOCUMENT PICTURES --------------- //
 function save_additional_document(){
 	                      $.mobile.loading("show", {text: 'loading',textVisible: true,theme: 'b',html: '<img src="css/loading.gif" style="width:40%;margin-left: 30%;"  />'});
