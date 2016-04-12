@@ -2794,44 +2794,7 @@ function update_shipments_load(load_id){
 											$('#shipper_photos').html('');
 											$('#shp_sig_options').html('');
 											//--------------
-											if(data[k].pickup_doc_pages >= 1){
-												
-												//alert('Im inside_0');
-												localStorage.shipper_counter = parseFloat(data[k].pickup_doc_pages) + 1;
-												var d = new Date();
-												var shp_date = data[k].origin_sign_date;
-												var split_shp_date = shp_date.split(' ');
-												var split_shp_date_1 = split_shp_date[0].split('-');
-												var a = 0;
-												for(j=0;j<data[k].pickup_doc_pages;j++){
-													//alert('Im inside');
-													a++;
-														 $('#shipper_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+a+')">-'+split_shp_date_1[1]+'/'+split_shp_date_1[2]+'/'+split_shp_date_1[0]+'_'+a+'</a></div>');
-														 $('#shp_sig_options').append('<div><a style="color:blue; font-weight:500" href="#" onClick="sign_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+a+')">-'+split_shp_date_1[1]+'/'+split_shp_date_1[2]+'/'+split_shp_date_1[0]+'_'+a+'</a></div>');
-														   }
-														    
-											}else{
-												localStorage.shipper_counter = 1;
-												}
-											$('#consignee_photos').html('');
-											$('#cs_sig_options').html('');
-											if(data[k].drop_doc_pages >= 1){
-												localStorage.consignee_counter = parseFloat(data[k].drop_doc_pages) + 1;
-												var d = new Date();
-												var cs_date = data[k].destination_sign_date;
-												var split_cs_date = cs_date.split(' ');
-												var split_cs_date_1 = split_cs_date[0].split('-');
-												var b = 0;
-												for(j=0;j<data[k].drop_doc_pages;j++){
-													//alert('Im inside');
-													b++;
-												$('#consignee_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+b+')">-'+split_cs_date_1[1]+'/'+split_cs_date_1[2]+'/'+split_cs_date_1[0]+'_'+b+'</a></div>');
-												$('#cs_sig_options').append('<div><a style="color:blue; font-weight:500" href="#" onClick="sign_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+b+')">-'+split_cs_date_1[1]+'/'+split_cs_date_1[2]+'/'+split_cs_date_1[0]+'_'+b+'</a></div>');
-														   }
-											}else{
-												localStorage.consignee_counter = 1;
-												}
-											//alert('shipmentid-'+localStorage.shipment_id);
+
 											$.ajax({
 													 type: 'POST',
 													 async:false,
@@ -2893,22 +2856,22 @@ function update_shipments_load(load_id){
 											$('#drop_text').html(drop_add_1_1+' - '+drop_add_2+drop_add_1_2);
 											$("#bol_number_hid").html(data[k].bol_number);
 											if (data[k].origin_sign != 0){
-												      $('#shipper_take_picture').show();
+												      $('#shipper_take_picture').html('<img width="100%" src="css/picked_up.png" />');
+													   $('#shipper_take_picture').attr('onClick','');
+													  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
 												}else{
-													  $('#shipper_take_picture').show();
+													   $('#shipper_take_picture').html('<img width="100%" src="css/for_pickup.png" />');
+													  $('#shipper_take_picture').attr('onClick','shipper_take_pic()');
+													  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery.png" />');
 													}
 											if(data[k].destination_sign != 0){
-												  $('#consignee_take_picture').show();
+												 $('#consignee_take_picture').html('<img width="100%" src="css/delivered.png" />');
+												  $('#consignee_take_picture').attr('onClick','');
 												    }
 											if(data[k].origin_sign != 0 && data[i].destination_sign != 1){
-												  $('#consignee_take_picture').show();
+												  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
+												  $('#consignee_take_picture').attr('onClick','consignee_take_pic()');
 												}
-											d = new Date();
-											setTimeout(function(){
-												//alert('inside bol_details');
-													$("#image_source").attr('src',''+localStorage.files+'/'+data[i].ts_load_idts_load+'_bol_'+data[i].bol_number+'-0.jpg?'+d.getTime()+'');
-												 }, 500);
-									
 									}
 								}
 
