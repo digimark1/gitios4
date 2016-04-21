@@ -19,10 +19,10 @@
 			localStorage.ready = 'no';
 			
 			//localStorage.second_trace = 'friend';
-		myScroll = new iScroll('bol_image', {
+		/*myScroll = new iScroll('bol_image', {
 				zoom: true,
 				bounce:false
-			});
+			});*/
 		}
 		//test-a-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 		document.addEventListener('DOMContentLoaded', loaded, false);
@@ -584,43 +584,63 @@
                     <img id="image_source" alt="" src="css/loading2.gif" style="width:100%;padding-top:2px;"/>
                 </div>-->
                 <div id="pick_drop">
+                <div id="map"></div>
                   <!--<p>PickUp Location: <a style="color:red" href="maps://?q=cupertino"; onclick="window.open(this.href,'_system'); return false;">EverGreen Street 1600</a></p>-->
                   <div id="pick_div">
                      <div id="shipper_title">SHIPPER</div>
                       <div id="pick_div_text">
-                         <p><span id="pick_location_title">PickUp Address: </span><span id="pickup_text">Address</span></p>
-                         <p><a style="color:blue; font-weight:500" onClick="location.href=localStorage.pick_address" target="_system">View in maps</a></p>
+                         <p id="pick_margin_bottom"><span id="pick_location_title"><span id="company1">_</span></span></p><p><span id="pickup_text">Address</span></p>
+                         <p>Pickup time: <span id="op_time_pk"></span></p>
+                         <!--<p><a style="color:blue; font-weight:500" onClick="location.href=localStorage.pick_address" target="_system">View in maps</a></p>-->
                       </div>
                       <div id="pick_div_im">
                            <div id="shipper_table">
                                 <div id="shipper_take_picture" onClick="shipper_take_pic()"><img width="100%" src="css/for_pickup.png" /></div>
+                                <!--<div>Company:&nbsp;</div>-->
+                                <div><span id="reference1"></span></div>
+                                <div>Pickup #:&nbsp;<span id="pickup_number"></span></div>
                                 <!-- <div id="shipper_add_signature" onClick="shipper_add_sig()"><a href="#choose_signature_shipper" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div> -->
                                <!-- <div id="shipper_wrapper">
                                 	 <div id="expand_shipper"><b>&nbsp; - </b>Shipper BOL</div>
                                 	<div id="shipper_photos"></div> 
                                  </div>-->
+                                 <!--<a href="#view_special_instructions" data-rel="popup" data-position-to="window" id="special_link2">Special Instructions</a>-->
                            </div>
                           <!--<a style="color:red" onClick="location.href=localStorage.pick_address" target="_system"><img id="pick_map_icon" src="css/maps-icon1.png"/></a> -->
                       </div>
                    </div>
+                   <table id="links1">
+                <tr>
+                <td><a style="color:blue; font-weight:500" onClick="location.href=localStorage.pick_address" target="_system">View in maps</a></td><td><a href="#view_special_instructions" data-rel="popup" data-position-to="window" id="special_link">Special Instructions</a></td></tr></table>
+                <div>ETA:<span id="eta_shipper">_</span></div>
+                
                    <div id="drop_div">
                    <div id="consignee_title">CONSIGNEE</div>
                       <div id="drop_div_text">
-                          <p><span id="drop_location_title">Delivery Address: </span><span id="drop_text">Address</span></p>
-                          <p><a style="color:blue; font-weight:500" onClick="location.href=localStorage.drop_address" target="_system">View in maps</a></p>
+                          <p id="drop_margin_bottom"><span id="drop_location_title"><span id="company2">_</span></span></p><p><span id="drop_text">Address</span></p>
+                          <p>Delivery time: <span id="op_time_dp"></span></p>
+                          <!--<p><a style="color:blue; font-weight:500" onClick="location.href=localStorage.drop_address" target="_system">View in maps</a></p>-->
                        </div>
                        <div id="drop_div_text">
                        <div id="consignee_table">
                              <div id="consignee_take_picture" onClick="consignee_take_pic()"><img width="100%" src="css/for_delivery.png" /></div>
+                             <!--<div>Company:&nbsp;</div>-->
+                              <div><span id="reference2"></span></div>
+                               <div>Drop #:&nbsp;<span id="drop_number"></span></div>
                              <!--<div id="consignee_add_signature" onClick="consignee_add_sig()"><a href="#choose_signature_consignee" data-rel="popup" data-position-to="window"><img width="100%" src="css/add_signature.png" /></a></div>-->
                              <!--<div id="consignee_wrapper">
                                  <div id="expand_consignee"><b>&nbsp; - </b>Consignee BOL</div>
                                  <div id="consignee_photos"></div>
                              </div>-->
+                             <!--<a href="#view_special_instructions" data-rel="popup" data-position-to="window" id="special_link">Special Instructions</a>-->
                        </div>
                           <!--<a style="color:red" onClick="location.href=localStorage.drop_address" target="_system"><img id="drop_map_icon" src="css/maps-icon2.png"/></a> -->
                       </div>
                     </div>
+                    <table id="links2">
+                <tr>
+                <td><a style="color:blue; font-weight:500" onClick="location.href=localStorage.drop_address" target="_system">View in maps</a></td><td><a href="#view_special_instructions2" data-rel="popup" data-position-to="window" id="special_link2">Special Instructions</a></td></tr></table>
+                    <div>ETA:<span id="eta_consignee">_</span></div>
                 </div>
                 
                 <div id="aditional_documents">
@@ -1728,7 +1748,7 @@ $('#div_document_name').click(function(){
 				$('#picture_buttons').hide();
 				$('#pick_drop').hide();
 				$('#digital_buttons').show();
-				$('#bol_image').show();
+				//$('#bol_image').show();
 				// expandable menu
 				//-------
 			});
@@ -1740,7 +1760,7 @@ $('#div_document_name').click(function(){
 				$('#picture_buttons').show();
 				$('#pick_drop').hide();
 				$('#digital_buttons').hide();
-				$('#bol_image').show();
+				//$('#bol_image').show();
 			});	
 		$('#direction_bol').click(function(){
 			    //$('#chat_bol').attr('src','css/chat_inactive.png');
@@ -1750,7 +1770,7 @@ $('#div_document_name').click(function(){
 				//$('#picture_buttons').hide();
 				$('#pick_drop').show();
 				//$('#digital_buttons').hide();
-				$('#bol_image').hide();
+				//$('#bol_image').hide();
 			});
 		 $('#chat_bol, #chat_bol2').click(function(){
 			    //$('#chat_bol').attr('src','css/chat_active.png');
@@ -1767,7 +1787,7 @@ $('#div_document_name').click(function(){
 		function view_bol(){
 			 //$('#localstorage_trace').html(localStorage.trace);
 				                //location.href='#page2_5';
-								var bolh1 = (0.51)*parseFloat(window.screen.height);
+								/*var bolh1 = (0.51)*parseFloat(window.screen.height);
 								$('#bol_image').css("height",bolh1);
 								setTimeout(function (){
 									//alert('inside view bol')
@@ -1782,7 +1802,7 @@ $('#div_document_name').click(function(){
 									 
 								setTimeout(function () {
 											myScroll.refresh();
-									}, 500);
+									}, 500);*/
 					}
 		///-------- TRACE LOAD - Onpage2 ----///
 		function trace_load(){
