@@ -895,6 +895,83 @@ function save_additional_document(){
 										  }
 									  });
 	};
+	
+//-----Adding consecutive to additional documents.----//
+function add_shipper_images(){
+	                    var imageURI = $('#cam_picture').html();
+						var options = new FileUploadOptions();
+						options.fileKey = "file";
+						options.fileName = ''+localStorage.load_id_bol+'_bol_'+localStorage.bol_number+'_sp-'+localStorage.shipper_counter+'.jpg';
+						options.mimeType = "image/jpeg";
+						options.params = {
+												firstname: 'first',
+												lastname: 'second',
+												workplace: 'workplace'
+											}
+						var ft = new FileTransfer();
+						ft.upload(imageURI, encodeURI(localStorage.save_url+"/save_picture.php"), win1, fail1, options);
+						
+						           function win1(r) {
+													  //alert('win1');
+													  $('#cam_picture').html('');
+													  //---- POP UP SHIPPER -----//
+													  //localStorage.save_shipper_bol = '/save_shipper_page.php';
+													  localStorage.shipper_counter = parseFloat(localStorage.shipper_counter) + 1;
+													  //----------CHECK if there is already a signature to not send the callcheck ------
+																 $.ajax({
+																	  type: 'POST',
+																	  async: true,
+																	  dataType:'json',
+																	  url: ''+localStorage.base_url+'/load/app_get_shipments_by_id/'+localStorage.shipment_id,
+																	  success: function(data){
+																		  if(data[0].origin_sign == 1){
+																			  }else{
+																				$.ajax({
+																					type: 'POST',
+																					data: {load_id:localStorage.load_id_bol, sig_id: 1, bol_number:localStorage.bol_number, user_id: localStorage.user_id, lat_sig: $('#latitude').val(), lng_sig:$('#longitude').val()},
+																					url: ''+localStorage.save_url+'/message_pic.php',
+																					success: function(data){},
+																					error: function(data){},
+																					});
+																				  }
+																		  },
+																	  error: function(data){}
+																 });
+														//----------------------------------------------------------------------------
+													   $.ajax({
+														  type: 'POST',
+														  async: true,
+														  data:{pages_shipper:localStorage.shipper_counter,load_id:localStorage.load_id_bol,bol_number:localStorage.bol_number,doc_name:'Shipper Document'},
+														  url: ''+localStorage.save_url+'/shipper_page_number_add.php',
+														  success: function(data){
+															 /* navigator.notification.alert(
+																						  'Additional picture has been sent to the manager',
+																						  alertCallback,
+																						  'Smith TracknGo',
+																						  'Ok');*/
+																localStorage.origin_sign = 1;
+															  console.log(data);
+															  },
+														  error: function(data){
+															  navigator.notification.alert(
+																						  'There was a problem, Try again',
+																						  alertCallback,
+																						  'Smith TracknGo',
+																						  'Ok');
+															  console.log(data);
+															  }
+														  });
+												}
+												
+												function fail1(error) {
+													alert("A1n error has occurred: Code = " + error.code);
+													console.log("upload error source " + error.source);
+													console.log("upload error target " + error.target);
+												}
+	};
+
+//---- -----//
+
 function document_take_pic(){
 	if($('#select_new_document').val()=='0'){
 	       navigator.notification.alert(
@@ -914,6 +991,7 @@ function document_take_pic(){
 				function onSuccess3(imageURI) {
 					$.mobile.loading("show", {text: 'loading',textVisible: true,theme: 'b',html: '<img src="css/loading.gif" style="width:40%;margin-left: 30%;"  />'});
 					$('#cam_picture').html(imageURI);
+					add_shipper_images();
 					//--- SAVE PICTURE TAKEN -----//
 							var imageURI = $('#cam_picture').html();
 							var options = new FileUploadOptions();
@@ -2810,6 +2888,36 @@ function update_shipments_load(load_id){
 									//alert('bol number number');
 											$("#header_load").html("BOL # :"+'<a id="bol" href="#" x-apple-data-detectors="false">'+data[k].bol_number+'</a>');
 											$('#header_load_number').html("LOAD # :"+$('#load_number_hid').html());
+											  if(data[k].special_instructions != null){
+													 $('#special_instructions_text').html(data[k].special_instructions);
+												};
+												if(data[k].special_instructions2 != null){
+													 $('#special_instructions_text2').html(data[k].special_instructions2);
+												};
+												if(data[k].company_name != null){
+													   $('#company1').html(data[k].company_name);
+													};
+												if(data[k].company_name2 != null){
+													   $('#company2').html(data[k].company_name2);
+													};
+												if(data[k].pickup_time != null){
+													   $('#op_time_pk').html(data[k].pickup_time);
+													};
+												if(data[k].drop_time != null){
+													   $('#op_time_dp').html(data[k].drop_time);
+													};
+												if(data[k].reference != null){
+													   $('#reference1').html(data[k].reference);
+													};
+												if(data[k].reference2 != null){
+													   $('#reference2').html(data[k].reference2);
+													};
+												if(data[k].pickup_number != null){
+													   $('#pickup_number').html(data[k].pickup_number);
+													};
+												if(data[k].drop_number != null){
+													   $('#drop_number').html(data[k].drop_number);
+													};
 									//alert('bol number number-2');
 											$('#shipper_photos').html('');
 											$('#shp_sig_options').html('');
