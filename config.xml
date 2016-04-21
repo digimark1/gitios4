@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "KT5ZDH49Y7.com.leanstaffing.trackngo"
-        version   = "1.5.9">
+        version   = "1.6.0">
 
-    <name>Smith-Cargo Trackn'Go v1.3</name>
+    <name>Smith-Cargo Trackn'Go v1.5</name>
 
     <description>
        Application for Smith Transportation Services.
