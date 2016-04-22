@@ -204,10 +204,20 @@
 						//alert('device ready for app use');
 						if(localStorage.location_mark == 1){
 						        localStorage.location_mark = 0;
-								location.href='#page1_1';
+								if(localStorage.chat_phone_off == 1){
+									localStorage.chat_back = 1;
+									}else{
+										//alert('1');
+								 location.href='#page1_1';
+								}
 								$.mobile.loading("hide");
 							}else{
-								location.href='#page1_1';
+								if(localStorage.chat_phone_off == 1){
+									localStorage.chat_back = 1;
+									}else{
+										//alert('2');
+								 location.href='#page1_1';
+								}
 								$.mobile.loading("hide");
 								};
 							if(localStorage.finish == 0){
@@ -217,6 +227,7 @@
 									  //alert('local finish 0');
 									  active_shipments_load(localStorage.last_active_load, localStorage.last_active_load_number);
 									  $.mobile.loading("hide");
+									  localStorage.chat_phone_off = 0;
 								}else{
 									if(localStorage.notification == 1){
 										//alert('local notification 1');
@@ -225,10 +236,16 @@
 										}else{
 											//alert('local notification 0');
 										  localStorage.tobecontinued = 0;
-										  location.href='#page1_1';
+										  if(localStorage.chat_phone_off == 1){
+											  localStorage.chat_back = 1;
+											  }else{
+												  //alert('4');
+											 location.href='#page1_1';
+											};
 										  $.mobile.loading("hide");
 										}
 										localStorage.notification = 0;
+										localStorage.chat_phone_off = 0;
 									};
 							
 						setTimeout(function(){
@@ -349,7 +366,9 @@
 										})
 								  setTimeout(function(){
 									location.href = "#page4";
-							      },100) 
+									localStorage.chat_phone_off = 1;
+									localStorage.bol_redirect = 1;
+							      },0) 
 								 
 								}; 
 							 
@@ -2997,14 +3016,16 @@ function update_shipments_load(load_id){
 													  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery.png" />');
 													  $('#consignee_take_picture').attr('onClick','');
 													}
-											if(data[k].destination_sign != 0){
-												 $('#consignee_take_picture').html('<img width="100%" src="css/delivered.png" />');
-												  $('#consignee_take_picture').attr('onClick','');
-												    }
-											if(data[k].origin_sign != 0 && data[i].destination_sign != 1){
-												  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
-												  $('#consignee_take_picture').attr('onClick','consignee_take_pic()');
-												}
+													setTimeout(function(){
+															if(data[k].destination_sign != 0){
+																 $('#consignee_take_picture').html('<img width="100%" src="css/delivered.png" />');
+																  $('#consignee_take_picture').attr('onClick','');
+																	}
+															if(data[k].origin_sign != 0 && data[i].destination_sign != 1){
+																  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
+																  $('#consignee_take_picture').attr('onClick','consignee_take_pic()');
+																}
+													},0);
 									}
 								}
 
@@ -3019,7 +3040,12 @@ function update_shipments_load(load_id){
                             }})
 				initMap1(latitude_driver,longitude_driver,parseFloat(localStorage.pickup_lat_val),parseFloat(localStorage.pickup_lng_val),parseFloat(localStorage.drop_lat_val),parseFloat(localStorage.drop_lng_val));
                       //return false;
-					  location.href = "#page2_5";
+					   //return false;
+					  if(localStorage.bol_redirect == 1){
+						  }else{
+					      location.href = "#page2_5";
+					  };
+					  localStorage.bol_redirect = 0;
                 };
 						  
 //----------------------END OF   Map, Distance , Time ------------------------------
@@ -3349,6 +3375,7 @@ function update_shipments_load(load_id){
 			},6000);*/
 		localStorage.counter_photo1 = 0;
 		localStorage.counter_photo2 = 0;
+		localStorage.bol_redirect = 0;
 		$('#select_new_document-button').css('font-size','14px');
 		$('#select_new_document-button').attr('class','ui-btn ui-icon-carat-d ui-corner-all ui-shadow');
 		$('#select_new_document-button').css('padding','5px');
