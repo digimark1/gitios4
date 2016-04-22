@@ -728,6 +728,7 @@ function shipper_take_pic(){
 																							    	 	$('#shipper_take_picture').html('<img width="100%" src="css/picked_up.png" />');
 																							     		$('#shipper_take_picture').attr('onClick','');
 																							     		$('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
+																										$('#consignee_take_picture').attr('onClick','consignee_take_pic()');
 																										$.mobile.loading("hide");
 																									  console.log(data);
 																									  },
@@ -2989,10 +2990,12 @@ function update_shipments_load(load_id){
 												      $('#shipper_take_picture').html('<img width="100%" src="css/picked_up.png" />');
 													   $('#shipper_take_picture').attr('onClick','');
 													  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery_active.png" />');
+													  $('#consignee_take_picture').attr('onClick','consignee_take_pic()');
 												}else{
 													   $('#shipper_take_picture').html('<img width="100%" src="css/for_pickup.png" />');
 													  $('#shipper_take_picture').attr('onClick','shipper_take_pic()');
 													  $('#consignee_take_picture').html('<img width="100%" src="css/for_delivery.png" />');
+													  $('#consignee_take_picture').attr('onClick','');
 													}
 											if(data[k].destination_sign != 0){
 												 $('#consignee_take_picture').html('<img width="100%" src="css/delivered.png" />');
