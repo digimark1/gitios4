@@ -1559,6 +1559,8 @@ $('#div_document_name').click(function(){
 										localStorage.removeItem('message');
 										localStorage.removeItem('comment');
 										localStorage.removeItem('inactive');
+										//clean everything
+										localStorage.clear();
 										//location.reload();
 										setTimeout(function(){location.href = "#page1";},0);
 										$('#user_name').val("")
