@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* CSS Document */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+#pickup_margin_right, #drop_margin_right{
+	margin-right:5px;
+	}
 #pick_margin_bottom, #drop_margin_bottom{
 	margin-bottom:0px;
 	}
