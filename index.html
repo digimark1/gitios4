@@ -583,6 +583,7 @@
 <!---- LAST DESIGN BOL PAGE 2_5 ----->   
  	<div data-role="page" id="page2_5">
              	    <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                    <div style="background-color: rgb(255, 255, 255); padding-top: 5%;"></div>  
                     <div>
                         <table width="100%">
                               <tr>
@@ -1035,7 +1036,7 @@ function document_take_pic(){
 												$.mobile.loading("hide");
 														   // Erase Picture when succeeding 
 														 $('#cam_picture').html('');
-														 var d = new Date()
+														 var d = new Date();
 										                  $('#lol_item_documents').append('<tr><td>'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'</td><td><a style="color:blue; font-weight:500" onClick="window.open('+localStorage.comma+''+localStorage.files+'/'+localStorage.temp_document_name+localStorage.comma+','+localStorage.comma+'_system'+localStorage.comma+')">'+$('#select_new_document').val()+'</a></td></tr>');
 														  localStorage.save_document_pic = '/save_document_page.php';
 														  save_additional_document();
@@ -2946,6 +2947,12 @@ function update_shipments_load(load_id){
 											$('#shipper_photos').html('');
 											$('#shp_sig_options').html('');
 											//--------------
+											if(data[k].pickup_doc_pages >= 1){
+												localStorage.shipper_counter = parseFloat(data[k].pickup_doc_pages) + 1;
+											}else{
+												localStorage.shipper_counter = 1;
+												}
+										    //--------------
 
 											$.ajax({
 													 type: 'POST',
@@ -3170,9 +3177,9 @@ function update_shipments_load(load_id){
 						message_signature(localStorage.load_id_bol,1,localStorage.bol_number);
 						//sigData.jSignature("reset");
 						  var d = new Date();
-						  $('#shipper_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.shipper_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.shipper_counter+'</a></div>');
-						  $('#expand_shipper').html('<b>&nbsp; - </b>Shipper BOL');
-						  $('#shipper_photos').show();
+						  //$('#shipper_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_shipper('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.shipper_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.shipper_counter+'</a></div>');
+						  //$('#expand_shipper').html('<b>&nbsp; - </b>Shipper BOL');
+						  //$('#shipper_photos').show();
 						  localStorage.shipper_counter = parseFloat(localStorage.shipper_counter) + 1;
 						  $('#eta_shipper').html("Completed");
 						  localStorage.origin_sign = 1;
@@ -3236,9 +3243,9 @@ function update_shipments_load(load_id){
 						$('#sig_button2').html('<img src="css/button3s.png" width="100%"/>');
 						message_signature(localStorage.load_id_bol,2,localStorage.bol_number);
 						var d = new Date()
-						 $('#consignee_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.consignee_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.consignee_counter+'</a></div>');
-						 $('#expand_consignee').html('<b>&nbsp; - </b>Consignee BOL');
-						 $('#consignee_photos').show();
+						// $('#consignee_photos').append('<div><a style="color:blue; font-weight:500" href="#" onClick="view_picture_consignee('+localStorage.load_id_bol+','+localStorage.comma+localStorage.bol_number+localStorage.comma+','+localStorage.consignee_counter+')">-'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+(d.getDate())).slice(-2)+'/'+d.getFullYear()+'_'+localStorage.consignee_counter+'</a></div>');
+						// $('#expand_consignee').html('<b>&nbsp; - </b>Consignee BOL');
+						 //$('#consignee_photos').show();
 						 localStorage.consignee_counter = parseFloat(localStorage.consignee_counter) + 1;
 						 $('#eta_consignee').html("Completed");
 						 localStorage.destination_sign = 1;
