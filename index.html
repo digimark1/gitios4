@@ -596,7 +596,7 @@
                         <div id="header_load">&nbsp;_</div><div id="header_load_number">&nbsp;_</div>
                      </div>
                      <div style="width:100%; line-height:0.3">
-                         <table width="100%"><tr><td width="12%"><a id="back_change" href="#page2" id="" class=""><img width="100%" src="css/back_pic.png"></a></td><td width="40%"><img id="original_id" src="css/original_link.png" width="100%"></td><td width=40%><img id="chat_bol" src="css/message_link.png" width="100%"></td></tr></table>
+                         <table width="100%"><tr><td width="12%"><a id="back_change" href="#page2" class=""><img width="100%" src="css/back_pic.png"></a></td><td width="40%"><img id="original_id" src="css/original_link.png" width="100%"></td><td width=40%><img id="chat_bol" src="css/message_link.png" width="100%"></td></tr></table>
                      </div>
                  </div>
                 
@@ -1563,7 +1563,9 @@ $('#div_document_name').click(function(){
 										//clean everything
 										localStorage.clear();
 										//location.reload();
-										setTimeout(function(){location.href = "#page1";},0);
+										setTimeout(function(){
+											//location.href = "#page1";
+										   location.reload()},0);
 										$('#user_name').val("")
 									},
 									error: function(){
